@@ -22,16 +22,16 @@ export default function Nav() {
 
 
   return (
-    <nav className={`nav ${show && "nav_black"}`}>
+    <nav className={`nav ${show && "nav__black"}`}>
       <img 
       src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/2560px-Netflix_2015_logo.svg.png" 
       alt="Netflix logo"
-      className='nav_logo'
+      className='nav__logo'
       onClick={() => window.location.reload()}
       />
       <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Marc_Randolph_by_Gage_Skidmore.jpg/1920px-Marc_Randolph_by_Gage_Skidmore.jpg" 
       alt="" 
-      className='nav_avator'
+      className='nav__avatar'
       />
     </nav>
   )
