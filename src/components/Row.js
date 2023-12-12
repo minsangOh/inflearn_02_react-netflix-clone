@@ -8,14 +8,13 @@ export default function Row({ isLargeRow, title, id, fetchUrl }) {
   const [movieselected, setMovieselected] = useState({})
 
   useEffect(() => {
+    const fetchMovieData = async () => {
+      const request = await axios.get(fetchUrl);
+      console.log(request);
+      setMovies(request.data.results);
+    };
     fetchMovieData();
-  }, []);
-
-  const fetchMovieData = async () => {
-    const request = await axios.get(fetchUrl);
-    console.log(request);
-    setMovies(request.data.results);
-  };
+  }, [fetchUrl]); // fetchUrl을 의존성 배열에 추가
 
   const handleClick = (movie) =>{
     setModalOpen(true)
