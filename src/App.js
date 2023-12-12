@@ -3,7 +3,7 @@ import "./App.css";
 import Footer from "./components/Footer";
 import Nav from "./components/Nav";
 import MainPage from "./pages/MainPage";
-import DEtailPage from "./pages/DetailPage";
+import DetailPage from "./pages/DetailPage";
 import SearchPage from "./pages/SearchPage";
 
 
@@ -27,7 +27,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}> 
           <Route index element={<MainPage />}/>
-          <Route path=":movieId" element={<DEtailPage />}/>
+          <Route path=":movieId" element={<DetailPage />}/>
           <Route path="search" element={<SearchPage />}/>
         </Route>
       </Routes>
