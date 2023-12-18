@@ -15,13 +15,15 @@ export default function DetailPage() {
     fetchData();
   }, [movieId]);
 
+  if (!movie) return <div>...loading</div>;
 
-if(!movie) return <div>...loading</div>
-
-  return <section>
-    <img
-    className="modal__poster-img"
-    src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`} 
-    alt="poster"/>
-  </section>;
+  return (
+    <section>
+      <img
+        className="modal__poster-img"
+        src={`https://image.tmdb.org/t/p/original/${movie.backdrop_path}`}
+        alt="poster"
+      />
+    </section>
+  );
 }

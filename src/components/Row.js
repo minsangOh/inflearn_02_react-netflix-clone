@@ -50,26 +50,26 @@ export default function Row({ isLargeRow, title, id, fetchUrl }) {
         <Swiper
           // install Swiper modules
           modules={[Navigation, Pagination, Scrollbar, A11y]}
-          navigation  // Arrow 버튼 사용 유무
+          navigation // Arrow 버튼 사용 유무
           pagination={{ clickable: true }}
           loop={true}
           breakpoints={{
-            1378:{
+            1378: {
               slidesPerView: 6,
-              slidesPerGroup: 6
+              slidesPerGroup: 6,
             },
-            998:{
+            998: {
               slidesPerView: 5,
-              slidesPerGroup: 5
+              slidesPerGroup: 5,
             },
-            625:{
+            625: {
               slidesPerView: 4,
-              slidesPerGroup: 4
+              slidesPerGroup: 4,
             },
-            0:{
+            0: {
               slidesPerView: 3,
-              slidesPerGroup: 3
-            }
+              slidesPerGroup: 3,
+            },
           }}
         >
           <div id={id} className="row__posters">
