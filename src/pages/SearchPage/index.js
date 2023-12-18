@@ -1,40 +1,51 @@
+// axios, React 훅, 그리고 커스텀 훅을 임포트합니다.
 import axios from "../../api/axios";
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import "./SearchPage.css";
 import { useDebounce } from "../../hooks/useDebounce";
 
+// SearchPage 함수형 컴포넌트를 정의합니다. 이 페이지는 검색 기능을 제공합니다.
 export default function SearchPage() {
+
+  // 페이지 이동을 위한 useNavigate 훅을 사용합니다.
   const navigate = useNavigate();
+
+  // 검색 결과 상태를 관리합니다.
   const [searchResults, setSearchResults] = useState([]);
 
+  // 현재 URL의 쿼리 파라미터를 반환하는 훅을 정의합니다.
   const useQuery = () => {
     return new URLSearchParams(useLocation().search);
   };
 
   let query = useQuery();
+  // URL에서 'q' 쿼리 파라미터를 추출합니다. 이는 사용자가 입력한 검색어입니다.
   const searchTerm = query.get("q");
+  
+  // 검색어에 대한 디바운스 처리를 적용합니다.
   const debouncedSearchTerm = useDebounce(searchTerm, 500);
-  console.log("searchTerm", searchTerm);
 
+  // 검색어가 변경될 때마다 검색 결과를 불러옵니다.
   useEffect(() => {
     if (debouncedSearchTerm) {
       fetchSearchMovie(debouncedSearchTerm);
     }
   }, [debouncedSearchTerm]);
 
+  // 검색어를 사용하여 영화를 검색하는 함수입니다.
   const fetchSearchMovie = async (searchTerm) => {
     try {
       const request = await axios.get(
         `/search/multi?include_adult=false&query=${searchTerm}`
       );
-      console.log(request);
       setSearchResults(request.data.results);
     } catch (error) {
       console.log("error", error);
     }
   };
 
+  // 검색 결과를 렌더링하는 함수입니다.
   const renderSearchResults = () => {
     return searchResults.length > 0 ? (
       <section className="search-container">
@@ -64,7 +75,7 @@ export default function SearchPage() {
       <section className="no-results">
         <div className="no-results__text">
           <p>
-            찾고자 하는 검색어"{debouncedSearchTerm}"에 맞는 영화가 없습니다.
+            찾고자 하는 검색어 "{debouncedSearchTerm}"에 맞는 영화가 없습니다.
           </p>
         </div>
       </section>

@@ -1,20 +1,32 @@
 import { useEffect } from "react";
 
+// useOnClickOutside 커스텀 훅을 정의합니다. 
+// 이 훅은 주어진 DOM 요소(ref) 외부의 클릭을 감지하고, 지정된 핸들러(handler)를 실행합니다.
 const useOnClickOutside = (ref, handler) => {
-  useEffect(() => {
-    const listener = (event) => {
-      // console.log('ref',ref.current)
-      if (!ref.current || ref.current.contains(event.target)) {
-        return
-      }
-      handler()
-    }
 
-    document.addEventListener("mousedown",listener)
-    document.addEventListener("touchstart",listener)
+  // 컴포넌트가 마운트될 때 이벤트 리스너를 설정하고, 언마운트될 때 제거합니다.
+  useEffect(() => {
+
+    // 클릭 이벤트를 처리하는 리스너 함수를 정의합니다.
+    const listener = (event) => {
+
+      // 클릭된 요소가 ref 요소 내부에 있는 경우, 아무것도 하지 않습니다.
+      if (!ref.current || ref.current.contains(event.target)) {
+        return;
+      }
+
+      // 클릭된 요소가 ref 요소 외부에 있는 경우, 핸들러 함수를 실행합니다.
+      handler();
+    };
+
+    // mousedown과 touchstart 이벤트에 리스너를 추가합니다.
+    document.addEventListener("mousedown", listener);
+    document.addEventListener("touchstart", listener);
+
+    // 컴포넌트가 언마운트될 때 이벤트 리스너를 제거합니다.
     return () => {
-      document.removeEventListener("mousedown",listener)
-      document.removeEventListener("touchstart",listener)
+      document.removeEventListener("mousedown", listener);
+      document.removeEventListener("touchstart", listener);
     };
   });
 };

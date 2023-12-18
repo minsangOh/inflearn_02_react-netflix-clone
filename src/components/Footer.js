@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
+// Footer 함수형 컴포넌트를 정의합니다. 이 컴포넌트는 웹사이트의 하단부를 구성합니다.
 export default function Footer() {
   return (
     <FooterContainer>
@@ -8,18 +9,12 @@ export default function Footer() {
         <FooterLinkContainer>
           <FooterLinkTitle>넷플릭스 대한민국</FooterLinkTitle>
           <FooterLinkContent>
-            <FooterLink href="https://help.netflix.com/ko/node/412">
-              넷플릭스 소개
-            </FooterLink>
-            <FooterLink href="https://help.netflix.com/ko">
-              고객 센터
-            </FooterLink>
-            <FooterLink href="https://help.netflix.com/ko/">
-              미디어 센터
-            </FooterLink>
-            <FooterLink href="https://help.netflix.com/ko/">
-              이용 약관
-            </FooterLink>
+
+            {/* 각 링크는 FooterLink 스타일 컴포넌트를 사용하여 표현됩니다. */}
+            <FooterLink href="https://help.netflix.com/ko/node/412">넷플릭스 소개</FooterLink>
+            <FooterLink href="https://help.netflix.com/ko">고객 센터</FooterLink>
+            <FooterLink href="https://help.netflix.com/ko/">미디어 센터</FooterLink>
+            <FooterLink href="https://help.netflix.com/ko/">이용 약관</FooterLink>
           </FooterLinkContent>
           <FooterDescContainer>
             <FooterDescRights>Netflix Rights Reserved.</FooterDescRights>
@@ -29,6 +24,9 @@ export default function Footer() {
     </FooterContainer>
   );
 }
+
+// styled-components를 사용하여 FooterContainer 스타일을 정의합니다.
+// styled-components는 React 컴포넌트에 CSS 스타일을 적용하는 라이브러리입니다.
 const FooterContainer = styled.div`
   display: flex;
   justify-content: center;
@@ -45,6 +43,9 @@ const FooterContainer = styled.div`
   }
 `;
 
+// 여기에는 FooterContent, FooterLinkContainer, FooterLinkTitle, FooterLinkContent,
+// FooterLink, FooterDescContainer, FooterDescRights에 대한 스타일이 정의됩니다.
+// 각 스타일 컴포넌트는 해당하는 HTML 요소의 레이아웃과 디자인을 관리합니다.
 const FooterContent = styled.div``;
 
 const FooterLinkContainer = styled.div`
@@ -62,7 +63,7 @@ const FooterLinkTitle = styled.h1`
 
 const FooterLinkContent = styled.div`
   display: flex;
-  justify-content: space-bewteen;
+  justify-content: space-between;
   flex-wrap: wrap;
   margin-top: 35px;
 
@@ -88,7 +89,9 @@ const FooterLink = styled.a`
 `;
 
 const FooterDescContainer = styled.div`
-  margin-top: 30px @media (max-width: 768px) {
+  margin-top: 30px;
+
+  @media (max-width: 768px) {
     margin-top: 20px;
   }
 `;
