@@ -33,7 +33,7 @@ export default function Banner() {
     return str?.length > n ? str.substr(0, n - 1) + "..." : str;
   };
 
-  // 영화 정보가 클릭되지 않았을 경우 배너를 표시합니다.
+  // 영화 정보가 클릭되지 않았을 경우 배너를 표시.
   if (!isClicked) {
     return (
       <header

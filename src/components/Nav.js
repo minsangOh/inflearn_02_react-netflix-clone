@@ -1,12 +1,12 @@
-// React의 훅과 CSS 스타일을 임포트합니다.
 import React, { useEffect, useState, useRef } from "react";
 import "./Nav.css";
 
-// 페이지 네비게이션을 위한 useNavigate 훅을 react-router-dom에서 임포트합니다.
+// 페이지 네비게이션을 위한 useNavigate 훅을 react-router-dom에서 임포트.
 import { useNavigate } from "react-router-dom";
 
 // Nav 컴포넌트 정의: 검색 기능과 스크롤에 따라 스타일이 변하는 네비게이션 바 구현
 export default function Nav() {
+  
   // 검색어 상태 관리와 스크롤 위치에 따른 네비게이션 바 스타일 변경을 위한 상태 설정
   const [searchValue, setSearchValue] = useState("");
   const [show, setShow] = useState(false);

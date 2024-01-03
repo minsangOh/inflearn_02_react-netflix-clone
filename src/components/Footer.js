@@ -25,8 +25,8 @@ export default function Footer() {
   );
 }
 
-// styled-components를 사용하여 FooterContainer 스타일을 정의합니다.
-// styled-components는 React 컴포넌트에 CSS 스타일을 적용하는 라이브러리입니다.
+// styled-components를 사용하여 FooterContainer 스타일을 정의.
+// styled-components는 React 컴포넌트에 CSS 스타일을 적용하는 라이브러리.
 const FooterContainer = styled.div`
   display: flex;
   justify-content: center;
@@ -44,8 +44,8 @@ const FooterContainer = styled.div`
 `;
 
 // 여기에는 FooterContent, FooterLinkContainer, FooterLinkTitle, FooterLinkContent,
-// FooterLink, FooterDescContainer, FooterDescRights에 대한 스타일이 정의됩니다.
-// 각 스타일 컴포넌트는 해당하는 HTML 요소의 레이아웃과 디자인을 관리합니다.
+// FooterLink, FooterDescContainer, FooterDescRights에 대한 스타일이 정의.
+// 각 스타일 컴포넌트는 해당하는 HTML 요소의 레이아웃과 디자인을 관리.
 const FooterContent = styled.div``;
 
 const FooterLinkContainer = styled.div`
